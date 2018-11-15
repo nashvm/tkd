@@ -1,0 +1,164 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container">
+    <div class="well">
+
+        <div class="row">
+            <form class="form-group" action="" method="post" name="recipe">
+                {{ form.hidden_tag() }}
+            
+            <div class="control-group{% if form.title.errors %} error{% endif %}">
+                <label class="control-label" for="title">{{ _('Recept Naam:') }}</label>
+                <div class="controls">
+                    {{ form.title(size=30, maxlength=140, class="col-sm-4") }}
+                    {% for error in form.title.errors %}
+                        <span class="help-inline">[{{ error }}]</span><br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="control-group{% if form.description.errors %} error{% endif %}">
+                <label class="control-label" for="description">{{ _('Beschrijving:') }}</label>
+                <div class="controls">
+                    {{ form.description(size=60, maxlength=180, class="col-md-6") }}
+                    {% for error in form.description.errors %}
+                        <span class="help-inline">[{{ error }}]</span><br>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+            <div class="row">
+                <div class="col-md-4">  
+                 <div class="control-group{% if form.image_url.errors %} error{% endif %}">
+                  <label class="control-label" for="image_url">{{ _('Image url:') }}</label>
+                   <div class="controls">
+                       {{ form.image_url(size=30, maxlength=140) }}
+                       {% for error in form.image_url.errors %}
+                           <span class="help-inline">[{{ error }}]</span><br>
+                       {% endfor %}
+                   </div>
+                 </div>
+               </div>
+   
+             <div class="col-md-3">  
+              <div class="control-group{% if form.tag.errors %} error{% endif %}">
+               <label class="control-label" for="tag">{{ _('Tags:') }}</label>
+                <div class="controls">
+                    {{ form.tag(size=30, maxlength=140) }}
+                    {% for error in form.tag.errors %}
+                        <span class="help-inline">[{{ error }}]</span><br>
+                    {% endfor %}
+                 </div>
+               </div>
+             </div>
+           </div>
+
+
+            <div class="row">
+             <div class="col-md-4">
+              <div class="control-group{% if form.region.errors %} error{% endif %}">
+               <label class="control-label" for="region">{{ _('Regio:') }}</label>
+                <div class="controls">
+                  {{ form.region }}
+                  {% for error in form.region.errors %}
+                     <span class="help-inline">[{{ error }}]</span><br>
+                  {% endfor %}
+               </div>
+              </div>
+             </div>
+
+             <div class="col-md-3">
+              <div class="control-group{% if form.party.errors %} error{% endif %}">
+               <label class="control-label" for="party">{{ _('Feest:') }}</label>
+               <div class="controls">
+                 {{ form.party }}
+                 {% for error in form.source.errors %}
+                   <span class="help-inline">[{{ error }}]</span><br>
+                 {% endfor %}
+               </div>
+              </div>
+             </div>
+            </div>
+
+            <div class="row">
+             <div class="col-md-4">
+              <div class="control-group{% if form.course.errors %} error{% endif %}">
+                <label class="control-label" for="course">{{ _('Gerecht:') }}</label>
+                <div class="controls">
+                  {{ form.course }}
+                </div>
+              </div>
+             </div>
+
+             <div class="col-md-3">
+              <div class="control-group{% if form.component.errors %} error{% endif %}">
+               <label class="control-label" for="component">{{ _('Hoofd Ingredient:') }}</label>
+               <div class="controls">
+                  {{ form.component }}
+               </div>
+             </div>
+            </div>
+          </div>
+
+          <div class="row">
+           <div class="col-md-4">
+             <div class="control-group{% if form.preparation.errors %} error{% endif %}">
+             <label class="control-label" for="preparation">{{ _('Tijd:') }}</label>
+               <div class="controls">
+                {{ form.preparation }}
+              </div>
+             </div>
+           </div>
+
+          <div class="col-md-3">
+            <div class="control-group{% if form.source.errors %} error{% endif %}">
+            <label class="control-label" for="source">{{ _('Herkomst:') }}</label>
+              <div class="controls">
+               {{ form.source }}
+             </div>
+            </div>
+           </div>
+          </div>
+
+          <div class="row">
+          <div class="control-group{% if form.ingredients.errors %} error{% endif %}">
+              <label class="control-label" for="ingredients">{{ _('Ingredienten:') }}</label>
+              <div class="controls">
+                  {{ form.ingredients(cols=64, rows=8, class="col-md-7") }}
+                  {% for error in form.ingredients.errors %}
+                      <span class="help-inline">[{{ error }}]</span><br>
+                  {% endfor %}
+              </div>
+          </div>
+        </div>
+
+          <div class="row">
+          <div class="control-group{% if form.instuctions.errors %} error{% endif %}">
+              <label class="control-label" for="instuctions">{{ _('Instructies:') }}</label>
+              <div class="controls">
+                  {{ form.instuctions(cols=96, rows=8, class="col-md-10") }}
+                  {% for error in form.instuctions.errors %}
+                      <span class="help-inline">[{{ error }}]</span><br>
+                  {% endfor %}
+              </div>
+          </div>
+        </div>
+
+          <div class="row">
+            <div class="control-group">
+                <div class="controls">
+                    <input class="btn btn-primary" type="submit" value="{{ _('Save!') }}">
+                </div>
+            </div>
+        </div>
+        </form>
+</div>
+</div>
+</div>
+{% endblock %}

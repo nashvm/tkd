@@ -1,0 +1,33 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+			<ul class="grid effect-2" id="grid">
+
+			{% for picture in pictures %}
+				<li><img src="static/feesten/{{ picture }}"></li>
+			{% endfor %}
+
+			</ul>
+		</div>
+		<script src="static/js/masonry.pkgd.min.js"></script>
+		<script src="static/js/imagesloaded.js"></script>
+		<script src="static/js/classie.js"></script>
+		<script src="static/js/AnimOnScroll.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/component.css" />
+    <script src="static/js/modernizr.custom.js"></script>    
+    <script>
+			new AnimOnScroll( document.getElementById( 'grid' ), {
+				minDuration : 0.4,
+				maxDuration : 0.7,
+				viewportFactor : 0.2
+			} );
+		</script>
+	</body>
+{% endblock %}
+

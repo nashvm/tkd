@@ -1,0 +1,57 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+	<body>
+		<div class="container">
+			<!-- Top Navigation -->
+
+			<ul class="grid effect-2" id="grid">
+			<li><video  controls="controls" width="100%" height="auto" frameborder="30">
+				<source src="/static/feesten/movies/chinees_feest_02021.MOV" type="video/mp4">
+			</video></li>
+			<li><video  controls="controls" width="100%" height="auto" frameborder="20">
+				<source src="/static/feesten/movies/chinees_feest_02025.MOV" type="video/mp4">
+			</video></li>
+			<li><video  controls="controls" width="100%" height="auto" frameborder="20">
+				<source src="/static/feesten/movies/chinees_feest_02024.MOV" type="video/mp4">
+			</video></li>
+			<li><a href="/static/feesten/extra/00menukaart_olympische_spelen_2008_2.jpg">
+				<img class="img-responsive" src="/static/feesten/extra/00menukaart_olympische_spelen_2008_2.jpg" alt="China">
+			</a></li>
+			<li><a href="/static/feesten/extra/00menukaart_olympische_spelen_2008_3.jpg">
+				<img class="img-responsive" src="/static/feesten/extra/00menukaart_olympische_spelen_2008_3.jpg" alt="China">
+			</a></li>
+			<li><a href="/static/feesten/extra/00menukaart_olympische_spelen_2008_4.jpg">
+				<img class="img-responsive" src="/static/feesten/extra/00menukaart_olympische_spelen_2008_4.jpg" alt="China">
+			</a></li>
+			<li><a href="/static/feesten/extra/00menukaart_olympische_spelen_2008_5.jpg">
+				<img class="img-responsive" src="/static/feesten/extra/00menukaart_olympische_spelen_2008_5.jpg" alt="China">
+			</a></li>
+			
+			<p>.</p>
+			{% for picture in pictures %}
+				<li><img src="static/feesten/{{ picture }}"></li>
+			{% endfor %}
+
+			</ul>
+    	</div>
+
+		<script src="static/js/masonry.pkgd.min.js"></script>
+		<script src="static/js/imagesloaded.js"></script>
+		<script src="static/js/classie.js"></script>
+		<script src="static/js/AnimOnScroll.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/component.css" />
+    <script src="static/js/modernizr.custom.js"></script>    
+    <script>
+			new AnimOnScroll( document.getElementById( 'grid' ), {
+				minDuration : 0.4,
+				maxDuration : 0.7,
+				viewportFactor : 0.2
+			} );
+		</script>
+	</body>
+{% endblock %}
+

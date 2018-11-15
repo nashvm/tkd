@@ -1,0 +1,9 @@
+<table class="table table-hover">
+    <tr>
+        <td>
+            <p><strong><span id="recipes{{ recipes.id }}">{{ recipes.title }}</span></strong></p>
+                <img id="loading{{ recipes.id }}" style="display: none" src="/static/img/loading.gif">
+            <div><a href="{{ url_for('delete', id = recipes.id) }}">{{ _('Delete') }}</a></div>
+        </td>
+    </tr>
+</table>

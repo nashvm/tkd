@@ -1,0 +1,30 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="well">
+
+<h4>{{ _('Zoek Resultaat voor "%(query)s":', query = query) }}</h4>
+{% include 'flash.html' %}
+<div class="row">
+  <div class="span3">
+          <strong><span>{{ _('Recept Naam:') }}</span></strong>
+  </div><div class="span1">
+          <span>{{ _('Regio:') }}</span>
+  </div><div class="span1">
+          <span>{{ _('Feest:') }}</span>
+  </div><div class="span1">
+          <span>{{ _('Gerecht:') }}</span>
+  </div><div class="span1">
+          <span>{{ _('Hoofd Ingredient:') }}</span>
+  </div><div class="span1">
+          <span>{{ _('Tijd:') }}</span>
+  </div>
+</div>
+
+{% for recipe in results %}
+    {% include 'recipe_results.html' %}
+{% endfor %}
+{% endblock %}
+</div>

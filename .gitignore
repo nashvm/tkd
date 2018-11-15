@@ -1,0 +1,14 @@
+#
+*.pyc
+*.txt
+*.csv
+__pycache__/
+app/__pycache__/
+app/static/feesten/
+app/static/test/
+app/static/img/
+app/static/images/
+flask/
+venv/
+tmp/
+.vscode
