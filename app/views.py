@@ -1,8 +1,8 @@
-from flask import render_template, flash, redirect, session, url_for, request, \
-    g, jsonify
-import os
 from flask import Flask, jsonify, abort, request, make_response, url_for, \
-     current_app
+    render_template, flash, redirect, session, g, current_app
+import os
+import json
+import requests
 from flask_login import login_user, logout_user, current_user, \
     login_required
 from flask_sqlalchemy import get_debug_queries
@@ -62,11 +62,25 @@ def index():
 
 @app.route('/amsterdam')
 def amsterdam():
-    pictures = os.listdir('app/static/feesten/amsterdam')
-    pictures = ['amsterdam/' + file for file in pictures]
-    return render_template('amsterdam.html', pictures = pictures)
-#    return render_template('amsterdam.html',
-#                           title='Amsterdam')
+    r = requests.post('https://www.google.com/recaptcha/api/siteverify',
+                          data = {'secret' :
+                                  '6LeJ3XwUAAAAAFkTQ5v0pYoTKI0FJu3l376VrRpa',
+                                  'response' :
+                                  request.form['g-recaptcha-response']})
+
+    google_response = json.loads(r.text)
+    print('JSON: ', google_response)
+
+    if google_response['success']:
+        print('SUCCESS')
+        pictures = os.listdir('app/static/feesten/amsterdam')
+        pictures = ['amsterdam/' + file for file in pictures]
+        return render_template('amsterdam.html', pictures = pictures)
+    else:
+        # FAILED
+        print('FAILED')
+        return render_template('index.html')
+
 
 @app.route('/cajun')
 def cajun():

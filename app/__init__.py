@@ -10,6 +10,7 @@ from flask_mail import Mail
 from flask_babel import Babel, lazy_gettext as _l
 #from .momentjs import momentjs
 from elasticsearch import Elasticsearch
+from flask_recaptcha import ReCaptcha
 
 db = SQLAlchemy()
 login = LoginManager()
@@ -37,7 +38,13 @@ app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
     if app.config['ELASTICSEARCH_URL'] else None
 
 #app.jinja_env.globals['momentjs'] = momentjs
+recaptcha = ReCaptcha(app=app)
 
+app.config.update({'RECAPTCHA_ENABLED': True,
+                   'RECAPTCHA_SITE_KEY':
+                       '6LeJ3XwUAAAAAKyfaarNa3r5TlF-DOKqm1kcx5IX',
+                   'RECAPTCHA_SECRET_KEY':
+                       '6LeJ3XwUAAAAAFkTQ5v0pYoTKI0FJu3l376VrRpa'})
 
 USERNAME = 'admin'
 PASSWORD = 'admin'
