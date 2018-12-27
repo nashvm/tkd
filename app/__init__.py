@@ -57,5 +57,5 @@ class CustomJSONEncoder(JSONEncoder):
 app.json_encoder = CustomJSONEncoder
 
 # Manage DB 
-from app import views, models, search, views_edit
+from app import views, models, search
 #from app import views, models, search
