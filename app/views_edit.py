@@ -15,7 +15,7 @@ from .forms import LoginForm, EditForm, PostForm, SearchForm, RecipeForm, \
 from .models import User, Post, Recipe
 #from .emails import follower_notification
 #from .translate import microsoft_translate
-from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS, LANGUAGES, \
+from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS, \
     DATABASE_QUERY_TIMEOUT
 
 

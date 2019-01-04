@@ -17,17 +17,17 @@ from .forms import LoginForm, EditForm, PostForm, SearchForm, RecipeForm, \
 from .models import User, Post, Recipe
 #from .emails import follower_notification
 #from .translate import microsoft_translate
-from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS, LANGUAGES, \
+from config import POSTS_PER_PAGE, MAX_SEARCH_RESULTS, \
     DATABASE_QUERY_TIMEOUT
 
-@babel.localeselector
-def get_locale():
-    return request.accept_languages.best_match(LANGUAGES.keys())
+#@babel.localeselector
+#def get_locale():
+#    return request.accept_languages.best_match(LANGUAGES.keys())
 
 @app.before_request
 def before_request():
     g.search_form = SearchForm()
-    g.locale = get_locale()
+#    g.locale = get_locale()
 
 
 @app.after_request
