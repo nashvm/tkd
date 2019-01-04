@@ -10,7 +10,7 @@ load_dotenv(os.path.join(basedir, '.env'))
 CSRF_ENABLED = True
 SECRET_KEY = 'you-will-never-guess'
 if os.environ.get('DATABASE_URL') is None:
-    SQLALCHEMY_DATABASE_URI = ('sqlite:///' + os.path.join(basedir, 'app.db') +
+    SQLALCHEMY_DATABASE_URI = ('sqlite:///' + os.path.join(basedir, 'db/app.db') +
                                '?check_same_thread=False')
 else:
     SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
