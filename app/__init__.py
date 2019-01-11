@@ -8,7 +8,6 @@ from flask_migrate import Migrate
 from flask_moment import Moment
 from flask_mail import Mail
 from flask_babel import Babel, lazy_gettext as _l
-#from .momentjs import momentjs
 from elasticsearch import Elasticsearch
 
 db = SQLAlchemy()
@@ -19,25 +18,19 @@ mail = Mail()
 moment = Moment()
 babel = Babel()
 
-
 app = Flask(__name__)
 app.config.from_object('config')
-#app.config.from_object(config_class)
 migrate = Migrate(app, db)
+from app.models import User, Recipe
 Bootstrap(app)
 db = SQLAlchemy(app)
 lm = LoginManager()
 lm.init_app(app)
 lm.login_view = 'login'
-#lm.login_message = lazy_gettext('Please log in to access this page.')
-#oid = OpenID(app, os.path.join(basedir, 'tmp'))
 mail = Mail(app)
 babel = Babel(app)
 app.elasticsearch = Elasticsearch([app.config['ELASTICSEARCH_URL']]) \
     if app.config['ELASTICSEARCH_URL'] else None
-
-#app.jinja_env.globals['momentjs'] = momentjs
-
 
 USERNAME = 'admin'
 PASSWORD = 'admin'
@@ -56,6 +49,12 @@ class CustomJSONEncoder(JSONEncoder):
 
 app.json_encoder = CustomJSONEncoder
 
-# Manage DB 
+@app.shell_context_processor
+def make_shell_context():
+    return {'Recipe': Recipe}
+
+@app.cli.command()
+def reindex():
+    Recipe.reindex()
+
 from app import views, models, search
-#from app import views, models, search

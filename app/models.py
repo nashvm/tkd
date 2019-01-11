@@ -4,6 +4,7 @@ from app import app, db
 from jinja2 import evalcontextfilter, Markup, escape
 from app.search import add_to_index, remove_from_index, query_index
 
+
 _paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
 
 
@@ -34,7 +35,7 @@ class SearchableMixin(object):
         for i in range(len(ids)):
             when.append((ids[i], i))
         return cls.query.filter(cls.id.in_(ids)).order_by(
-            db.case(when, value=cls.id)), total
+            db.case(when, value=Recipe.id)), total
 
     @classmethod
     def before_commit(cls, session):
@@ -61,10 +62,12 @@ class SearchableMixin(object):
     def reindex(cls):
         for obj in cls.query:
             add_to_index(cls.__tablename__, obj)
-
-
-db.event.listen(db.session, 'before_commit', SearchableMixin.before_commit)
-db.event.listen(db.session, 'after_commit', SearchableMixin.after_commit)
+    
+    @app.cli.command('reindex')
+    def reindex_command():
+        """Reindex DB."""
+        reindex()
+        print ('Reindex the database')
 
 
 class User(db.Model):
@@ -258,6 +261,8 @@ class Recipe(SearchableMixin, db.Model):
     def __repr__(self):
         return '<Recipe {}>'.format(self.title)
 
+db.event.listen(db.session, 'before_commit', Recipe.before_commit)
+db.event.listen(db.session, 'after_commit', Recipe.after_commit)
 
 @staticmethod
 def from_json(json_recipe):
