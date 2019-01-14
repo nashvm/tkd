@@ -1,5 +1,5 @@
 from flask import render_template, flash, redirect, session, url_for, request, \
-    g, jsonify
+    g, send_from_directory
 import os
 from flask import Flask, jsonify, abort, request, make_response, url_for, \
      current_app
@@ -59,6 +59,10 @@ def index():
     return render_template('index.html',
                            title='Home')
 
+@app.route('/robots.txt')
+#@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory(app.static_folder, request.path[1:])
 
 @app.route('/amsterdam')
 def amsterdam():
