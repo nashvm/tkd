@@ -1,7 +1,9 @@
 #
 *.pyc
-*.txt
+#*.txt
 *.csv
+app/static/fonts/codropsicons/license.txt
+app/templates/follower_email.txt
 __pycache__/
 app/__pycache__/
 app/static/feesten/
@@ -11,4 +13,5 @@ app/static/images/
 flask/
 venv/
 tmp/
+csv/
 .vscode
