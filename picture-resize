@@ -8,12 +8,13 @@
 FOLDER="."
 
 # 726x520
+# 580x616
 
 # max height
-WIDTH=726
+WIDTH=580
 
 # max width
-HEIGHT=520
+HEIGHT=416
 
 #resize png or jpg to either height or width, keeps proportions using imagemagick
 #find ${FOLDER} -iname '*.jpg' -o -iname '*.png' -exec convert \{} -verbose -resize $WIDTHx$HEIGHT\> \{} \;
@@ -22,7 +23,7 @@ HEIGHT=520
 #find ${FOLDER} -iname '*.png' -exec convert \{} -verbose -resize $WIDTHx$HEIGHT\> \{} \;
 
 #resize jpg only to either height or width, keeps proportions using imagemagick
-find ${FOLDER} -iname '*.jpg' -exec convert \{} -verbose -resize $WIDTHx$HEIGHT\> \{} \;
+find ${FOLDER} -iname '*.jpg' -exec convert \{} -verbose -quality 70 -resize $WIDTHx$HEIGHT\> \{} \;
 
 # alternative
 #mogrify -path ${FOLDER} -resize ${WIDTH}x${HEIGHT}% *.png -verbose
