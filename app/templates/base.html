@@ -35,10 +35,12 @@
                 {% if g.search_form %}
                 <form class="navbar-form navbar-left" method="get" action="{{ url_for('search') }}">
                     <div class="form-group">
-                        {{ g.search_form.q(size=30, class='form-control', placeholder='Recept') }}
+                        {{ g.search_form.q(size=30, class='form-control', placeholder='Recepten Zoeken') }}
                     </div>
                 </form>
                 {% endif %}
+                <a class="navbar-brand" href="{{ url_for('recipe') }}">Nieuw Recept</a>
+
         </div>
     </nav>
 {% endblock %}

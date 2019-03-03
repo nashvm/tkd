@@ -62,24 +62,28 @@ def index():
 
 @app.route('/amsterdam')
 def amsterdam():
+    pictures = os.listdir('app/static/feesten/amsterdam')
+    pictures = ['amsterdam/' + file for file in pictures]
+
     r = requests.post('https://www.google.com/recaptcha/api/siteverify',
                           data = {'secret' :
                                   '6LeJ3XwUAAAAAFkTQ5v0pYoTKI0FJu3l376VrRpa',
                                   'response' :
                                   request.form['g-recaptcha-response']})
-
     google_response = json.loads(r.text)
-    print('JSON: ', google_response)
 
-    if google_response['success']:
-        print('SUCCESS')
-        pictures = os.listdir('app/static/feesten/amsterdam')
-        pictures = ['amsterdam/' + file for file in pictures]
-        return render_template('amsterdam.html', pictures = pictures)
-    else:
-        # FAILED
-        print('FAILED')
-        return render_template('index.html')
+#    print('JSON: ', google_response)
+
+ #   if google_response['success']:
+ #       print('SUCCESS')
+ #       pictures = os.listdir('app/static/feesten/amsterdam')
+ #       pictures = ['amsterdam/' + file for file in pictures]
+ #       return render_template('amsterdam.html', pictures = pictures)
+ #   else:
+ #       # FAILED
+ #       print('FAILED')
+ #       return render_template('index.html')
+    return render_template('amsterdam.html', pictures = pictures)
 
 
 @app.route('/cajun')
