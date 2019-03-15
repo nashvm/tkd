@@ -10,6 +10,11 @@ app/static/feesten/
 app/static/test/
 app/static/img/
 app/static/images/
+app/static/css/
+app/static/fonts/
+app/static/js/
+app/static/robots.txt
+unpack
 flask/
 venv/
 tmp/
