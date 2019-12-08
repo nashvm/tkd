@@ -59,6 +59,21 @@ def index():
     return render_template('index.html',
                            title='Home')
 
+@app.route('/geschiedenis', methods=['GET', 'POST'])
+def geschiedenis():
+    return render_template('geschiedenis.html',
+                           title='Geschiedenis')
+
+@app.route('/galerij', methods=['GET', 'POST'])
+def galerij():
+    return render_template('galerij.html',
+                           title='Galerij')
+                           
+@app.route('/recepten', methods=['GET', 'POST'])
+def recepten():
+    return render_template('zoek_pagina.html',
+                           title='Recepten')
+
 @app.route('/robots.txt')
 #@app.route('/sitemap.xml')
 def static_from_root():

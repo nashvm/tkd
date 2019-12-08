@@ -4,49 +4,26 @@
 {% block content %}
 
 	<body>
-		<div class="container">
-			<!-- Top Navigation -->
+		<div class="row">
+			<div class="col-md-12 col-sm-1">
+				<img src="static/img/caprese.jpg" class="img-fluid" alt="Responsive image">
 			</div>
-			<ul class="grid effect-2" id="grid">
-				<li><img src="static/img/Intro.jpg"></li>
-				<li><a href="{{ url_for('index') }}"><img src="static/img/Damrak.jpg"></a></li>
-				<li><a href="{{ url_for('amsterdam') }}"><img src="static/img/2014-feest-amsterdam.jpg"></a></li>
-                <li><img src="static/img/gatsby.jpg"></li>
-                <li><a href="{{ url_for('wijnproef') }}"><img src="static/img/wijnproef.jpg"></a></li>
-                <li><a href="{{ url_for('china') }}"><img src="static/img/china.png"></a></li>
-                <li><a href="{{ url_for('afrika') }}"><img src="static/img/afrika.jpg"></a></li>
-                <li><a href="{{ url_for('cajun') }}"><img src="static/img/cajun.jpg"></a></li>
-                <li><a href="{{ url_for('caribbean') }}"><img src="static/img/caribbean.jpg"></a></li>
-                <li><a href="/static/feesten/extra/smoothies_inside.jpg">
-                    <img class="img-responsive" src="/static/feesten/extra/smoothies_inside_small.jpg" alt="Smoothies">
-				</a></li>
-				<li><a href="{{ url_for('amsterdam') }}"><img src="static/img/2014-feest-amsterdam.jpg"></a></li>
-                <li><img src="static/img/gatsby.jpg"></li>
-                <li><a href="http://www.cantinatramin.it/EN/"><img src="static/img/kurk_tramin-600.jpg"></a></li>
-				<li><a href="http://www.poggiodeigorleri.com/"><img src="static/img/kurk_poggio-600.jpg"></a></li>
-                <li><a href="{{ url_for('afrika') }}"><img src="static/img/afrika.jpg"></a></li>
-                <li><a href="{{ url_for('cajun') }}"><img src="static/img/cajun.jpg"></a></li>
-                <li><a href="{{ url_for('caribbean') }}"><img src="static/img/caribbean.jpg"></a></li>				
-                <li><a href="/static/feesten/extra/cocktailz_inside.jpg">
-                    <img class="img-responsive" src="/static/feesten/extra/cocktailz_inside.jpg" alt="Cocktails">
-                </a></li>
-			</ul>
+			<div class="col-md-4 col-sm-1">
+
+			</div>
 
 		</div>
-		<script src="static/js/masonry.pkgd.min.js"></script>
-		<script src="static/js/imagesloaded.js"></script>
-		<script src="static/js/classie.js"></script>
-		<script src="static/js/AnimOnScroll.js"></script>
-    <link rel="stylesheet" type="text/css" href="static/css/default.css" />
-    <link rel="stylesheet" type="text/css" href="static/css/component.css" />
-    <script src="static/js/modernizr.custom.js"></script>    
-    <script>
-			new AnimOnScroll( document.getElementById( 'grid' ), {
-				minDuration : 0.4,
-				maxDuration : 0.7,
-				viewportFactor : 0.2
-			} );
-		</script>
+			
+
+		<div class="container">
+			<!-- Top Navigation -->
+			<p class="text-center"></p>
+		      <blockquote class="blockquote">
+			    <p class="text-center mb-0">The Kings Delight is een gelegenheid restaurant welke zijn deuren ongeveer 2 maal per jaar opent.</p>
+			    <footer class="blockquote-footer text-center"><cite>Het is opgericht op 27 Januari 1989 na het organiseren en nuttigen van een "Engelse thee" Het is onstaan uit een fascinatie voor koken. Voor ieder feest of diner wordt een thema gekozen om heerlijke gerechten bij uit te zoeken gecombineerd met wijnen, cocktails enz.</cite></footer>
+		      </blockquote>
+            
+			</div>
 	</body>
 {% endblock %}
 

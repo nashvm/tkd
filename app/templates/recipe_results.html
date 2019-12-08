@@ -2,15 +2,15 @@
 <div class="row">
   <div class="col-md-4">
         <div><a href="{{ url_for('viewrecipe', id = recipe.id) }}">{{ recipe.title }}</a></div>
-  </div><div class="hidden-xs col-md-1">
+  </div><div class="d-none d-md-block col-md-1">
           <span id="recipe{{ recipe.id }}">{{ recipe.region }}</span>
-  </div><div class="hidden-xs col-md-1">
+  </div><div class="d-none d-md-block col-md-1">
           <span id="recipe{{ recipe.id }}">{{ recipe.party }}</span>
-  </div><div class="col-md-1">
+  </div><div class="d-none d-md-block col-md-1">
           <span id="recipe{{ recipe.id }}">{{ recipe.course }}</span>
-  </div><div class="hidden-xs col-md-1">
+  </div><div class="d-none d-md-block col-md-1">
           <span id="recipe{{ recipe.id }}">{{ recipe.component }}</span>
-  </div><div class="hidden-xs col-md-1">
+  </div><div class="d-none d-md-block col-md-1">
           <span id="recipe{{ recipe.id }}">{{ recipe.preparation }}</span>
   </div>
 
