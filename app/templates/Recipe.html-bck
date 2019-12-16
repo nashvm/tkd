@@ -1,0 +1,75 @@
+<!-- extend base layout -->
+
+{% extends "base.html" %}
+{{ super() }}
+
+{% block content %}
+  <div class="container">
+    <div class="well">
+      <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-6">
+          <h2>{{ _(' %(title)s', title=recipe.title) }}</h2>
+        </div>
+      </div>
+
+      <div class="row">
+       <div class="col-md-1">
+       </div>
+
+        <div class="col-md-1">
+          <br>
+          {% if recipe.course %}
+          <span id="recipe{{ recipe.id }}">{{ recipe.course }}</span><br>
+          {% endif %}
+          {% if recipe.region %}
+          <span id="recipe{{ recipe.id }}">{{ recipe.region }}</span><br>
+          {% endif %}
+          {% if recipe.party %}
+          <span id="recipe{{ recipe.id }}">{{ recipe.party }}</span>
+          {% endif %}
+        </div>
+        <div class="col-md-6">
+          <h1><small>{{ _(' %(description)s', description=recipe.description) }}</small></h1>
+        </div>
+
+      </div>
+
+      <div class="row">
+      <div class="col-md-11 col-xs-11">
+      {% if recipe.image_url %}
+            <img id="loading{{ recipe.id }}" class="img-responsive" style="margin:6px;" src="{{ recipe.image_url }}">
+          {% else %}
+            <img id="loading{{ recipe.id }}" class="img-responsive" style="margin:5px;" src="/static/img/the_kings_delight.jpg">
+      {% endif %}
+    </div>
+
+    </div>
+
+      <div class="row">
+
+          <div class="col-md-1">
+          </div>
+        <div class="col-md-4">
+           <h4>Ingrediënten</h4>
+          {{ _(' %(ingredients)s', ingredients=recipe.ingredients) | nl2br }}
+          <div class="panel-primary-overlay-right">
+      </div>
+
+        </div>
+        <div class="col-md-4">
+           <h4>Bereiden</h4>
+           {% autoescape false %}
+          {{ _(' %(instuctions)s', instuctions=recipe.instuctions) |nl2br }}
+          {% endautoescape %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="static/css/default.css" />
+
+{% endblock %}
