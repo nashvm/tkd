@@ -5,14 +5,12 @@ from jinja2 import evalcontextfilter, Markup, escape
 from app.search import add_to_index, remove_from_index, query_index
 
 
-_paragraph_re = re.compile(r'(?:\r\n|\r|\n){2,}')
-
-
 @app.template_filter()
 @evalcontextfilter
 def nl2br(eval_ctx, value):
-    result = u'\n\n'.join(u'%s<br>' % p.replace('\n', Markup('<br>\n'))
-                          for p in _paragraph_re.split(escape(value)))
+    _paragraph_re = re.compile(r'(?:\r\n|\r(?!\n)|\n){2,}')
+    result = u'\n\n'.join(u'<p>%s</p>' % p.replace(u'\n', Markup('<br>\n'))
+                                         for p in _paragraph_re.split(value))
     if eval_ctx.autoescape:
         result = Markup(result)
     return result
