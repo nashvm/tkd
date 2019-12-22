@@ -11,10 +11,10 @@ FOLDER="."
 # 580x616
 
 # max height
-WIDTH=800
+WIDTH=1100
 
 # max width
-HEIGHT=800
+HEIGHT=1100
 
 #resize png or jpg to either height or width, keeps proportions using imagemagick
 #find ${FOLDER} -iname '*.jpg' -o -iname '*.png' -exec convert \{} -verbose -resize $WIDTHx$HEIGHT\> \{} \;
